@@ -1,0 +1,28 @@
+{% extends 'admin_base.html' %}
+{% block content%}
+<div class="container-fluid" style="margin-block: 3rem;     padding-left: 3rem;
+padding-right: 3rem;">
+    {% for i in fetched_data %}
+    <div class="row">
+        <div class="col-sm-9">
+          {{forloop.counter}}. Student ID: {{i.0}} | Name: {{i.1}} {{i.2}} | Email: {{i.3}}
+        </div>
+        <div class="col-sm-3">
+        <div class="container">
+            <div class="row">
+              <div class="col-sm">
+                <a href="/admin-login/dashboard/student-details/details/{{i.0}}" class="btn btn-primary">Details</a>
+              </div>
+              <div class="col-sm">
+                <a href="/admin-login/dashboard/student-details/edit/{{i.0}}" class="btn btn-primary">Edit Details</a>
+              </div>
+              
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+{% endfor %}
+</div>
+{% endblock content %}
+    

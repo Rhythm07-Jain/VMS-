@@ -1,0 +1,94 @@
+{% extends 'student_base2.html' %}
+
+{% block content%}
+
+<h3 class="pb-2 border-bottom" style="text-align: center;
+margin-block: 1rem;">{{vendor_name}}</h3>
+
+{% for item in vendor_items %}
+<div class="card mb-3 container" style="margin: 1rem;margin-left: 5.5rem;max-width: 630px;display: inline-block;height: 13rem;">
+  <form method="POST">
+    {% csrf_token %}
+  <div class="row g-0">
+      {% comment %} <div class="col-md-4">
+        <img src="img/1.jpeg" class="img-fluid rounded-start" alt="...">
+      </div> {% endcomment %}
+      <div class="col-md-8" >
+        <div class="card-body">
+          <h5 class="card-title">{{item.2}}</h5>
+          <p class="card-text">Price: {{item.3}}</p>
+          {% if item.4 %}
+          <p class="card-text" style= "color:#2cce2c;">
+            
+            Available
+            </p>
+            <div class="container">
+              <div class="row">
+                <div class="col-sm">
+                  <select name="qty" class="form-select" aria-label="Default select example">
+                    <option selected value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                </div>
+                <div class="col-sm form-check form-switch" style="margin-left: 2rem;">
+                  <div class="form-check form-switch" >
+                    <input name="pack" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Pack</label>
+                  </div>
+                </div>
+                <div class="col-sm form-check form-switch">
+                    <button name='addBtn' value='{{item.0}}' type="submit" class="btn btn-primary">Add</button>
+                </div>
+              </div>
+            </div>
+            {% else %}
+            <p class="card-text" style= "color:red">
+              Not Available
+            </p>
+            {% endif %}
+        </div>
+      </div>
+    </div>
+  </form>
+  </div>
+  {% endfor %}
+  {% comment %} <div class="card mb-3 container" style="margin: 1rem;margin-left: 5.5rem;max-width: 630px;display: inline-block;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="img/1.jpeg" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8" >
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          
+            <div class="container">
+              <div class="row">
+                <div class="col-sm">
+                  <select class="form-select" aria-label="Default select example">
+                    <option selected>0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                  </select>
+                </div>
+                <div class="col-sm form-check form-switch" style="margin-left: 2rem;">
+                  <div class="form-check form-switch" >
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Pack</label>
+                  </div>
+                </div>
+                <div class="col-sm form-check form-switch">
+                    <button type="button" class="btn btn-outline-dark">Dark</button>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div> {% endcomment %}
+  {% endblock content %}

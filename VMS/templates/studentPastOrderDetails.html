@@ -1,0 +1,57 @@
+{% extends 'student_base1.html' %}
+
+{% block content%}
+
+{% for key,value in orders.items %}
+
+    <div class="container" style="margin-top: 0.5rem;">
+        <div class="card">
+          <div class="card-header">
+            Order Id: {{key}}
+          </div>
+          <div class="card-body">
+            <p class="card-text">Date: {{value.1}}<br>Time: {{value.2}}<br> </p>
+            <p class="card-text">Items: <br>
+              {% for k,v in value.3.items %}
+                  {{k}} - {{v}}<br>
+                {% endfor %}
+            </p>
+
+            <p class="card-text">Total amount: {{expense}} </p>
+            <!-- <a href="#" class="btn btn-primary">View Details</a> -->
+          </div>
+        </div>
+        <hr>
+        </div>
+    
+        <!-- <div class="container" style="margin-top: 0.5rem;">
+            <div class="card">
+              <div class="card-header">
+                Order Id: 43682792bfdh
+              </div>
+              <div class="card-body">
+                <p class="card-text">Date: <br>Time: <br> </p>
+                <p class="card-text">Amount:</p>
+                <a href="#" class="btn btn-primary">View Details</a>
+              </div>
+            </div>
+            <hr>
+            </div>
+            <div class="container" style="margin-top: 0.5rem;">
+                <div class="card">
+                  <div class="card-header">
+                    Order Id: 43682792bfdh
+                  </div>
+                  <div class="card-body">
+                    <p class="card-text">Date: <br>Time: <br> </p>
+                    <p class="card-text">Amount:</p>
+                    <a href="#" class="btn btn-primary">View Details</a>
+                  </div>
+                </div>
+                <hr>
+                </div> -->
+                {% endfor %}
+                {% endblock content %}
+
+    
+

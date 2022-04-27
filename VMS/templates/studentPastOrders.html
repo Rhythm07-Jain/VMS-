@@ -1,0 +1,24 @@
+{% extends 'student_base1.html' %}
+{% block content%}
+
+    <div class="container" style="margin-top: 0.5rem;">
+      {% for key,value in orders.items %}
+      <form method="POST" action="/student-login/dashboard/past-orders/details/">
+        {% csrf_token %}
+        <div class="card">
+          <div class="card-header">
+            Order Id: {{key}}
+          </div>
+          <div class="card-body">
+            <p class="card-text">Date: {{value.1}}<br>Time: {{value.2}}<br> </p>
+            <p class="card-text">Amount: {{value.0}}</p>
+            <button type='submit' name='orderid' value='{{key}}' class="btn btn-primary">View Details</button>
+          </div>
+        </div>
+        <hr>
+      </form>
+        {% endfor %}
+        </div>
+    
+        
+{% endblock content %}

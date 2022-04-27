@@ -1,0 +1,42 @@
+{% extends 'student_base2.html' %}
+
+{% block content%}
+<div class="container-fluid" style="margin-block: 3rem;     padding-left: 3rem; padding-right: 3rem;">
+    {% if noData %}
+    <div> Nothing to Display </div>
+    {% else %}
+    {% for key, value in cart_items.items %}
+    <form method="POST">
+        {% csrf_token %}
+    <div class = "row">
+        <div class = "col-sm-9">
+          {{value.3}} | Quantity: {{value.0}} | Price: {{value.1}} | Pack: {% if value.2 == 1 %} Yes {% else %} No{% endif %}
+        </div>
+        <div class = "col-sm-3">
+        <div class="container">
+            <div class="row">
+              {% comment %} <div class="col-sm form-check form-switch" style="align-self: center;">
+
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                    <label class="form-check-label" for="flexSwitchCheckDefault">On/Off</label>
+              </div> {% endcomment %}
+              {% comment %} <div class="col-sm">
+                <button type="button" class="btn btn-outline-dark">Edit</button>
+              </div> {% endcomment %}
+              <div class="col-sm">
+                <button type="submit" name=deleteCartBtn value={{key}} class="btn btn-outline-danger">Delete</button>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+</form>
+{% endfor %}
+<div>
+    Total Amount: {{total_amount}}
+</div>
+    <a href="{% url 'order-complete' %}" class="btn btn-primary" style="margin-top: 1rem;">Order</a>
+{% endif %}
+</div>
+{% endblock content %}

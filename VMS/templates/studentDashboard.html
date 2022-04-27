@@ -1,0 +1,30 @@
+{% extends 'student_base1.html' %}
+{% block content%}
+{% for i in fetched_data %}
+    <div class="card mb-3 container" style="margin: 1rem;margin-left: 8.5rem;max-width: 540px;display: inline-block;">
+        <div class="row g-0">
+          {% comment %} <div class="col-md-4">
+            <img src="img/1.jpeg" class="img-fluid rounded-start" alt="...">
+          </div> {% endcomment %}
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{i.0}}</h5>
+              <p class="card-text">Location: {{i.1}}</p>
+              {% if i.2 %}
+              <p class="card-text" style= "color:#2cce2c;">
+                Open 
+                <a href="/student-login/dashboard/outlet/{{i.0}}" class="btn btn-primary" style="margin-left: 4rem;">Order</a>
+              </p>
+              {% else %}
+              <p class="card-text" style= "color: red;">
+                Closed
+              </p>
+              
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+{% endfor %}
+{% endblock content %}
+  

@@ -1,0 +1,65 @@
+{% extends 'admin_base.html' %}
+{% block content%}
+    <div class="container">
+      <main>
+        <div class="py-5 text-center">
+          <h2>Add Student</h2>
+        </div>
+    
+        <div class="row g-5">
+          <div class="col-md-7 col-lg-8">
+            <form method = "POST" class="needs-validation">
+              {% csrf_token %}
+              <div class="row g-3">
+                <div class="col-sm-7">
+                  <label for="s_fname1" class="form-label">First Name</label>
+                  <input type="text" name = "s_fname" class="form-control" id="s_fname1" placeholder="" value="" required>
+                </div>
+                <div class="col-sm-7">
+                  <label for="s_lname1" class="form-label">Last Name</label>
+                  <input type="text" name = "s_lname" class="form-control" id="s_lname1" placeholder="" value="" required>
+                </div>
+                <div class="col-sm-7">
+                    <label for="s_id1" class="form-label">Student ID</label>
+                    <input type="text" name = "s_id" class="form-control" id="s_id1" placeholder="" value="" required>
+                  </div>
+                <div class="col-sm-7">
+                  <label for="s_email1" class="form-label">Email</label>
+                  <input type="text" name = "s_email" class="form-control" id="s_email1" placeholder="" value="" required>
+                </div>
+                <div class="col-sm-7">
+                  <label for="s_password1" class="form-label">Password</label>
+                  <input type="password" name = "s_password" class="form-control" id="s_password1" placeholder="" value="" required>
+                </div>
+                <div class="col-sm-7">
+                  <label for="s_phonenumber1" class="form-label">Phone Number</label>
+                  <input type="tel" name = "s_phonenumber" class="form-control" id="s_phonenumber1" placeholder="" value="" required>
+                </div>
+                <div class="col-sm-7">
+                  <label for="s_alternatephonenumber1" class="form-label">Alternate Phone Number</label>
+                  <input type="tel" name = "s_alternatephonenumber" class="form-control" id="s_alternatephonenumber1" placeholder="" value="" >
+                </div>
+
+                {% comment %} <div class="input-group mb-3">
+                  <label class="input-group-text" for="inputGroupFile01">Upload Image</label>
+                  <input type="file" class="form-control" id="inputGroupFile01">
+                </div> {% endcomment %}
+    
+                {% comment %} <div class="col-12">
+                  <label for="description" class="form-label">Description</label>
+                  <input type="text" name = "description" class="form-control" id="description" placeholder="" required="">
+                </div> {% endcomment %}
+    
+    
+              </div>
+    
+              <hr class="my-4">
+    
+              <button class="w-100 btn btn-primary btn-lg mb-4" type="submit">Add Student</button>
+            </form>
+          </div>
+        </div>
+      </main>
+    </div>
+      {% endblock content %}
+    
